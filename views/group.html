@@ -1,0 +1,6 @@
+<div class="group">
+    <h1>{{group.name}}</h1>
+{% for plot in group.plots|filter(v => v is not null) %}
+    {{ include('plot.html') }}
+{% endfor %}
+</div>

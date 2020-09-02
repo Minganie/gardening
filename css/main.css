@@ -1,0 +1,162 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+.foreword {
+    padding: 1rem;
+}
+
+/* Legend, in a slideout */
+.groups {
+    margin-right: 25px;
+}
+.legend {
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    right: -620px;
+    width: 645px;
+    padding: 0 0 0 35px;
+    border-radius: 10px;
+    background-color: #004373;
+    border: 2px solid #0094ff;
+    transition: all 0.25s ease;
+}
+.legend > div::before {
+    content: "^ Legend ^";
+    display: block;
+    position: absolute;
+    color: white;
+    transform: rotate(-90deg);
+    top: 50vh;
+    left: -67px;
+    font-size: 20px;
+}
+.legend > div {
+    position: relative;
+    height: 100vh;
+    background-color: black;
+}
+.legend > div > img {
+    position: absolute;
+    top: 50%;
+    height: 444px;
+    margin-top: -222px;
+}
+.legend:hover {
+    right: 0;
+}
+
+/* GROUP of plots */
+.group {
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+/* PLOT */
+.plot {
+    display: inline-block;
+    border: 1px solid white;
+    width: 225px;
+    border-radius: 5px;
+    margin: 1rem;
+}
+.plot h1 {
+    margin-left: 5px;
+    line-height: 69px;
+    font-size: 18px;
+    white-space: nowrap;
+}
+.plot h1 > * {
+    vertical-align: middle;
+}
+.plot h1.single span {
+    display: inline-block;
+}
+.plot h1.single span {
+    width: 64px;
+    height: 64px;
+    margin-right: 5px;
+}
+.plot h1.seed {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../icons/Seed.png');
+    background-position: right 5px top, right 5px top;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 64px, 64px;
+}
+.plot h1.crop {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../icons/Crop.png');
+    background-position: right, right;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 64px, 64px;
+}
+.plot h1.dual {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../icons/Crop.png'), url('../icons/Seed.png');
+    background-position: right, top right, bottom right;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-size: 64px, 32px, 32px;
+}
+.plot h1.dual div.imgs {
+    display: inline-block;
+    width: 32px;
+    height: 65px;
+    line-height: 0;
+    margin-right: 5px;
+}
+.plot h1.dual div img {
+    margin: 0 0 1px 0;
+    display: block;
+}
+.plot h1.dual div.words {
+    display: inline-block;
+    line-height: 32px;
+}
+.plot h1.dual div.words > span {
+    display: block;
+}
+
+/* SPOTS in the plot */
+.spot {
+    width: 64px;
+    height: 64px;
+    margin: 5px;
+    float: left;
+}
+.spot > div {
+    width: 64px;
+    height: 64px;
+}
+.spot.permaplant::before {
+    content: " ";
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    background: rgba(0, 255, 0, 0.5);
+    mix-blend-mode: overlay;
+}
+.spot.switching > div {
+    position: absolute;
+}
+.spot.switching > div:nth-child(1) {
+    clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+}
+.spot.switching > div:nth-child(2) {
+    clip-path: polygon(100% 0%, 100% 100%, 0% 100%);
+}

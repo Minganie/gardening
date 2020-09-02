@@ -1,0 +1,22 @@
+{% if i == 5%}
+    <div class="spot single"><div class="middle"></div></div>    
+{% else %}
+    {% if plot.org == '4x4' %}
+        {% set zespot = (i is odd ? plot.spots[0] : plot.spots[1]) %}
+    {% elseif plot.org == '3x5' %}
+        {% if i == 1 or i == 3 or i == 8%}
+            {% set zespot = plot.spots|filter(v => v.org==3)|first %}
+        {% else %}
+            {% set zespot = plot.spots|filter(v => v.org==5)|first %}
+        {% endif %}
+    {% else %}
+        <p>Unknown plot layout</p>
+    {% endif %}
+    
+    {% if zespot.switching %}
+        <div class="spot switching {{zespot.permaplant ? 'permaplant' : ''}}" title="{{zespot.crop_1.name}} or {{zespot.crop_2.name}}; always plant two identical seeds in W+SW and E+SE"><div class="{{zespot.crop_1.html_class_name}}"></div><div class="{{zespot.crop_2.html_class_name}}"></div></div>
+    {% else %}
+        <div class="spot single {{zespot.permaplant ? 'permaplant' : ''}}"><div class="{{zespot.crop_1.html_class_name}}" title="{{zespot.crop_1.name}}"></div></div>    
+    {% endif %}
+    
+{% endif %}

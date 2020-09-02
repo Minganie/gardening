@@ -1,0 +1,15 @@
+<div class="plot">
+{% if plot.desired_crop and plot.desired_crop.name and plot.desired_seed and plot.desired_seed.name %}
+    <h1 class="dual"><div class="imgs"><img src="icons/{{plot.desired_crop.name}}.png" width=32 height=32 alt=""><img src="icons/{{plot.desired_seed.name}}.png" width=32 height=32 alt=""></div><div class="words"><span>{{plot.desired_crop.name}}</span><span>{{plot.desired_seed.name}}</span></div></h1>
+{% elseif plot.desired_crop and plot.desired_crop.name %}
+    <h1 class="single crop"><span class="{{plot.desired_crop.html_class_name}}"></span>{{plot.desired_crop.name}}</h1>
+{% elseif plot.desired_seed and plot.desired_seed.name %}
+    <h1 class="single seed"><span class="{{plot.desired_seed.html_class_name}}"></span>{{plot.desired_seed.name}}</h1>
+{% else %}
+    <h1>Unknown plot</h1>
+{% endif %}
+
+{% for i in 1..9 %}
+    {% include 'spot.html' %}
+{% endfor %}
+</div>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Mel's Gardening Cliffnotes</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+{% for crop in crops %}
+    /* {{crop.name}} */
+    h1 span.{{crop.html_class_name}} {
+        background: url('icons/{{crop.name}}.png') left/64px no-repeat;
+    }
+    .spot .{{crop.html_class_name}} {
+        background: url('icons/{{crop.name}}.png') center/64px;
+    }
+    .spot.single .{{crop.html_class_name}}::after {
+        content: "{{crop.abbrev}}";
+    }
+    .spot.switching .{{crop.html_class_name}}:nth-child(1)::before {
+        content: "{{crop.abbrev}}";
+    }
+    .spot.switching .{{crop.html_class_name}}:nth-child(2)::after {
+        content: "{{crop.abbrev}}";
+        position: relative;
+        top: 47px;
+        left: 32px;
+    }
+{% endfor %}
+    </style>
+</head>
+<body>
+    <div class="foreword">
+        <h1>Foreword</h1>
+        <p>For several of the garden plots presented below, there are plenty of other possible intercrosses. However, I present the choices that seem the easiest to me when starting from scratch. Here's my decision process:</p>
+        <ul>
+            <li>Minimize cross depth (i.e. Wild Seed x Wild Seed is better than Wild Seed x Cross Seed)</li>
+            <li>Minimize gathering hassle:
+            <ol>
+                <li>Hunt seals seeds</li>
+                <li>Blessed Harvest-able seeds (HW+)</li>
+                <li>Hidden, not rare seeds ([Earth/Fire/etc]light Seeds)</li>
+                <li>100% Luck of the Pioneer-able seeds (only hidden item at their node)</li>
+                <li>50% Luck of the Pioneer-able seeds (two hidden items at the same node)</li>
+                <li>One-per-hour, hard limit seeds</li>
+            </ol>
+            </li>
+            <li>If alternate crosses are unavoidable, pick a valuable cross</li>
+        </ul>
+    </div>
+    <div class="groups">
+    {% for group in groups %}
+        <div>
+            {{ include('group.html') }}
+        </div>
+    {% endfor %}
+    </div>
+    <div class="legend">
+        <div>
+            <img src="icons/Legend.png" width=585 height=444 alt="How to read this page">
+        </div>
+    </div>
+</body>
+</html>
