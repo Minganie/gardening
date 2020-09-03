@@ -1,0 +1,19 @@
+<header>
+    <div class="title">
+        <img src="icon.png" alt="icon" width=40 height=40>
+        <h1>{{name}}</h1>
+    </div>
+    <!-- <nav> -->
+        <!-- <a href="#">Mel's Gardening Cliffnotes</a> -->
+    <!-- </nav> -->
+    <div>
+    {% if not logged %}
+        <a class="button" href="../auth/login?from=gardening">Log in</a>
+    {% else %}
+        <form action="../auth/logout" method="post">
+            <input type="hidden" id="from" name="from" value="gardening">
+            <button type="submit">Log out</button>
+        </form>
+    {% endif %}
+    </div>
+</header>

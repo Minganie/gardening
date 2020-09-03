@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 $loader = new Twig_Loader_Filesystem(__DIR__ . '/views');
 $twig = new Twig_Environment($loader, ['debug'=>true]);
@@ -8,7 +8,11 @@ $twig->addExtension(new \Twig\Extension\DebugExtension());
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
+session_start();
+
 $params = array(
+    'name' => "Mel's Gardening Cliffnotes",
+    'logged' => !empty($_SESSION['username']),
     'groups' => array(),
     'crops' => array()
 );

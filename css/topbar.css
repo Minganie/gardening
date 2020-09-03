@@ -1,0 +1,39 @@
+header {
+    background: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+	background-color: #3b393b;
+    margin-right: 25px;
+}
+header > div.title > * {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+header h1 a {
+    text-decoration: none;
+    color: inherit;
+}
+header > nav > a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    min-width: 10rem;
+    margin: 1rem 0.2rem 0 0.2rem;
+    border-radius: 10px 10px 0 0;
+    line-height: 33px;
+    padding: 1rem;
+    background-color: #222222;
+    text-align: center;
+}
+header button,
+header .button {
+    text-decoration: none;
+    color: white;
+    background-color: #888888;
+    border-radius: 5px;
+    border: none;
+    padding: 0.5rem 1rem;
+}

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Mel's Gardening Cliffnotes</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/topbar.css">
     <style>
 {% for crop in crops %}
     /* {{crop.name}} */
@@ -29,6 +30,7 @@
     </style>
 </head>
 <body>
+    {% include('topbar.html') %}
     <div class="foreword">
         <h1>Foreword</h1>
         <p>For several of the garden plots presented below, there are plenty of other possible intercrosses. However, I present the choices that seem the easiest to me when starting from scratch. Here's my decision process:</p>
